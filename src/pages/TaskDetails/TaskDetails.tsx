@@ -7,7 +7,7 @@ const task = {
   description: 'This is the first task',
 }
 
-export const TaskDetails: React.FC = () => {
+export const TaskDetails = () => {
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
