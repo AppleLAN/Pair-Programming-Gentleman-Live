@@ -1,9 +1,6 @@
 import { CardContent, Typography } from '@mui/material'
 import Card from '@mui/material/Card'
 
-// de la url un id, y ese de id muestra sus detalles;
-// una tarea 3 atributos:  id, name, description
-
 const task = {
   id: 686,
   name: 'First Task',
