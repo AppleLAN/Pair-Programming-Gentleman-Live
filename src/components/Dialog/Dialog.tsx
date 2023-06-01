@@ -8,7 +8,7 @@ export interface DialogProps extends Omit<MuiDialogProps, 'open' | 'onClose'> {
 };
 
 export function Dialog({ children, ...rest }: DialogProps) {
-  const { isOpen, closeDialog } = useDialog();
+  const { isOpen, setIsOpen } = useDialog();
 
-  return <StyledDialog open={isOpen} onClose={closeDialog} {...rest}>{children}</StyledDialog>;
+  return <StyledDialog open={isOpen} onClose={() => setIsOpen(false)} {...rest}>{children}</StyledDialog>;
 }
