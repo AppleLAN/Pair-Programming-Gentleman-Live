@@ -1,5 +1,5 @@
 import TaskList from './components/TaskList'
-import MultipleSelectChip from "../../components/MultipleSelectChip.tsx";
+import MultipleSelectChip from "./components/MultipleSelectChip.tsx";
 import * as React from "react";
 import {useState} from "react";
 import {TaskType} from "../../models/Task.ts";
