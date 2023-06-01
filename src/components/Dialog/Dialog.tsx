@@ -1,13 +1,14 @@
-import type { ReactNode } from "react";
-import { useDialog } from "../../hooks/useDialog";
 import { StyledDialog } from "./styles";
+import { useDialog } from "../../hooks/useDialog";
+import type { DialogProps as MuiDialogProps } from "@mui/material";
+import type { ReactNode } from "react";
 
-export type DialogProps = {
+export interface DialogProps extends Omit<MuiDialogProps, 'open' | 'onClose'> {
   children: ReactNode;
 };
 
-export function Dialog({ children }: DialogProps) {
-  const { isOpen } = useDialog();
+export function Dialog({ children, ...rest }: DialogProps) {
+  const { isOpen, closeDialog } = useDialog();
 
-  return <StyledDialog open={isOpen}>{children}</StyledDialog>;
+  return <StyledDialog open={isOpen} onClose={closeDialog} {...rest}>{children}</StyledDialog>;
 }

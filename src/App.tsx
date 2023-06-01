@@ -7,6 +7,8 @@ function App() {
   const { closeDialog, openDialog } = useDialog()
 
   return <>
+    <TaskListPage />
+    
     <Dialog>
       <h1>hola mundo</h1>
       <button onClick={closeDialog}>close</button>
