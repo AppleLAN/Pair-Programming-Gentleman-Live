@@ -4,29 +4,16 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import ListItemText from '@mui/material/ListItemText'
+import {TaskType} from "../../../models/Task.ts";
 
-export default function TaskList() {
-  const tasks = [
-    {
-      id: 1,
-      name: 'Ali Connors',
-      description: " — I'll be in your neighborhood doing errands this…"
-    },
-    {
-      id: 2,
-      name: 'Summer BBQ',
-      description: " — Wish I could come, but I'm out of town this…"
-    },
-    {
-      id: 3,
-      name: 'Oui Oui',
-      description: ' — Do you have Paris recommendations? Have you ever…'
-    }
-  ]
+export default function TaskList({taskList}: { taskList: TaskType[] }) {
+
+  //2 Filters Seleccionar la categoria
+  //2 Search que este basado en lo selecionado
 
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {tasks.map((task, index) => (
+      {taskList.map((task: TaskType, index: number) => (
         <>
           <ListItem key={task.id} alignItems='center'>
             <ListItemAvatar>
@@ -34,7 +21,7 @@ export default function TaskList() {
             </ListItemAvatar>
             <ListItemText primary={task.name} secondary={task.description} />
           </ListItem>
-          {index !== tasks.length - 1 && <Divider variant='inset' component='li' />}
+          {index !== taskList.length - 1 && <Divider variant='inset' component='li'/>}
         </>
       ))}
     </List>
