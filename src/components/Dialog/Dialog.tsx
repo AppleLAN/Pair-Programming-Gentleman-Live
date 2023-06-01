@@ -9,7 +9,7 @@ export interface DialogProps extends Omit<MuiDialogProps, 'open' | 'onClose'> {
 
 export function Dialog({ children, ...rest }: DialogProps) {
   const { isOpen, setIsOpen } = useDialog();
-  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
 
-  return <MuiDialog open={isOpen} onClose={handleOpen} {...rest}>{children}</MuiDialog>;
+  return <MuiDialog open={isOpen} onClose={handleClose} {...rest}>{children}</MuiDialog>;
 }
