@@ -4,7 +4,7 @@ import Card from '@mui/material/Card'
 const task = {
   id: 686,
   name: 'First Task',
-  description: 'This is the first task',
+  description: 'This is the first list',
 }
 
 export const TaskDetails = () => {

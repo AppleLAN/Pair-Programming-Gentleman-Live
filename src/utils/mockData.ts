@@ -1,5 +1,9 @@
 import {TaskType} from "../models/Task.ts";
-
+export const label = [
+    'Personal',
+    'Study',
+    'Work',
+];
 export const tasks: TaskType[] = [
     {
         id: 1,

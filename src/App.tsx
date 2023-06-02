@@ -1,5 +1,5 @@
-import TaskListPage from './pages/task-list/TaskListPage'
 import './styles/reset.css'
+import {TaskListPage} from "./pages/Shared.ts";
 
 function App() {
   return <TaskListPage />
