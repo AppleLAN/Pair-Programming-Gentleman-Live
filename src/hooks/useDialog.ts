@@ -6,17 +6,17 @@ export function useDialog() {
   const [dialog, setDialog] = useAtom(dialogAtom)
 
   const closeDialog = () => {
-    setDialog({ content: null })
+    setDialog(null)
   }
 
   const setContent = (content: ReactNode) => {
-    setDialog({ content })
+    setDialog(content)
   }
 
   return {
-    isOpen: !!dialog.content,
+    isOpen: !!dialog,
+    content: dialog,
     closeDialog,
-    content: dialog.content,
     setContent
   }
 }
