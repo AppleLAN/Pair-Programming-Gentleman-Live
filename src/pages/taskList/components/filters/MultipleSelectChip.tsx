@@ -1,5 +1,3 @@
-import * as React from 'react';
-import {Theme, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -19,44 +17,16 @@ const MenuProps = {
     },
 };
 
-const names = [
-    'Personal',
-    'Study',
-    'Work',
-];
-
-function getStyles(name: string, personName: readonly string[], theme: Theme) {
-    return {
-        fontWeight:
-            personName.indexOf(name) === -1
-                ? theme.typography.fontWeightRegular
-                : theme.typography.fontWeightMedium,
-    };
-}
-
-export default function MultipleSelectChip({
-                                               selectedLabel,
-                                               setSelectedLabel
-                                           }
-                                               : {
+export default function MultipleSelectChip({selectedLabel,
+                                               handleChange,
+                                               labels}: {
     selectedLabel: string[],
-    setSelectedLabel: React.Dispatch<React.SetStateAction<string[]>>
+    handleChange: (event: SelectChangeEvent<string[]>) => void
+    labels:string[]
 }) {
-    const theme = useTheme();
-
-    const handleChange = (event: SelectChangeEvent<typeof selectedLabel>) => {
-        const {
-            target: {value},
-        } = event;
-        setSelectedLabel(
-            // On autofill we get a stringified value.
-            typeof value === 'string' ? value.split(',') : value,
-        );
-    };
 
     return (
-        <div>
-            <FormControl sx={{m: 1, width: 300}}>
+            <FormControl fullWidth>
                 <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
                 <Select
                     labelId="demo-multiple-chip-label"
@@ -74,17 +44,15 @@ export default function MultipleSelectChip({
                     )}
                     MenuProps={MenuProps}
                 >
-                    {names.map((name) => (
+                    {labels.map((name) => (
                         <MenuItem
                             key={name}
                             value={name}
-                            style={getStyles(name, selectedLabel, theme)}
                         >
                             {name}
                         </MenuItem>
                     ))}
                 </Select>
             </FormControl>
-        </div>
     );
 }
