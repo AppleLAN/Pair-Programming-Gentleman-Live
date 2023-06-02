@@ -1,9 +1,7 @@
-// import TaskListPage from './pages/task-list/TaskListPage'
-import { DialogExample } from "./DialogExample"
+import TaskListPage from './pages/task-list/TaskListPage'
 
 function App() {
-  // return <TaskListPage />
-  return <DialogExample />
+  return <TaskListPage />
 }
 
 export default App
