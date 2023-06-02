@@ -1,9 +1,22 @@
-import { atom, useAtom } from 'jotai'
+import { useAtom } from 'jotai'
+import { dialogAtom } from '../atoms/dialog.atom'
+import type { ReactNode } from "react";
 
-const dialogAtom = atom(false)
+export function useDialog() {
+  const [dialog, setDialog] = useAtom(dialogAtom)
 
-export function useDialog(){
-  const [isOpen, setIsOpen] = useAtom(dialogAtom)
+  const closeDialog = () => {
+    setDialog({ content: null })
+  }
 
-  return { isOpen, setIsOpen }
+  const setContent = (content: ReactNode) => {
+    setDialog({ content })
+  }
+
+  return {
+    isOpen: !!dialog.content,
+    closeDialog,
+    content: dialog.content,
+    setContent
+  }
 }
