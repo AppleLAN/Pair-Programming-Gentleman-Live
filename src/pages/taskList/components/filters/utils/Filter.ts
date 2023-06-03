@@ -14,7 +14,6 @@ export function filterList (optionsToFilter: string[]) {
                     task.label.toLowerCase().includes(searchItem.toLowerCase())
                 )
             );
-            const finalTasks = taskMatchedByTitle ? [taskMatchedByTitle] : [...tasksMatchedByLabel];
-            return (finalTasks);
+            return taskMatchedByTitle ? [taskMatchedByTitle] : [...tasksMatchedByLabel];
         }
 }
